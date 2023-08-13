@@ -1,6 +1,5 @@
-import {io} from 'socket.io-client';
+import { io } from "socket.io-client";
 
-const socket = io(process.env.S_URL);
+const socket = io("https://chat-backend-xqn1.onrender.com");
 
-
-export default socket 
+export default socket;

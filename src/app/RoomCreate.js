@@ -15,11 +15,12 @@ const Page = ({ roomId }) => {
   const { setItem } = useCreateRoomStore();
   const [createRoom, setCreateRoom] = useState(true);
   const [joinRoom, setJoinRoom] = useState(false);
-
-  
+  const [serverConnected, setServerConnected] = useState(false);
 
   useEffect(() => {
     socket.on("welcome", (data) => {
+      setServerConnected(true);
+
       console.log(data);
     });
   }, []);
@@ -57,9 +58,17 @@ const Page = ({ roomId }) => {
 
   return (
     <div>
-      
       <div className="flex w-screen h-screen ">
-        <div className="flex justify-center w-full items-center">
+        <div className="flex flex-col justify-center w-full items-center">
+          {!serverConnected ? (
+            <div>
+              Not connected to server Please Wait
+              <br /> server might take few minutes to load for first try
+              <br /> working on updating backend service please consider
+            </div>
+          ) : (
+            <div>Connected to server</div>
+          )}
           <div className="flex flex-col items-center justify-center gap-4 border py-4 px-4 bg-gray-950/25 border-white rounded-lg">
             <h2 className="text-3xl">Welcome</h2>
             {createRoom ? (
