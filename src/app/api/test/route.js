@@ -1,5 +1,6 @@
 import socket from "@/lib/socket";
+import { NextResponse } from "next/server";
 
-export default function GET(request) {
-  return new Response("OK");
+export async function GET() {
+  return NextResponse.json({ ok: true });
 }
