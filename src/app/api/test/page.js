@@ -6,6 +6,7 @@ const page = () => {
   useEffect(() => {
     socket.emit("wakeup", "hello");
   }, []);
+
   return <div>page</div>;
 };
 
