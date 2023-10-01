@@ -14,6 +14,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={poppins.className}>{children}</body>
       <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5948614829280156"
+        crossorigin="anonymous"
+      ></Script>
+      <Script
         id="clarity_ms"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
